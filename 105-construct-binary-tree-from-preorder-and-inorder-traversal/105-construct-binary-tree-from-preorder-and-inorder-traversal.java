@@ -14,7 +14,11 @@
  * }
  */
 class Solution {
+    HashMap<Integer, Integer> mappy = new HashMap();
     public TreeNode buildTree(int[] preorder, int[] inorder) {
+        for(int i = 0; i < inorder.length; i++) {
+                mappy.put(inorder[i], i);
+            }
         return helper(0,0,inorder.length-1, preorder,inorder);
     }
     
@@ -26,11 +30,7 @@ class Solution {
         TreeNode root = new TreeNode(preorder[preStart]);
         int inIndex = 0;
         
-        for(int i = inStart; i <= inEnd; i++) {
-            if(root.val == inorder[i]) {
-                inIndex = i;
-            }
-        }
+        inIndex = mappy.get(root.val);
         
         root.left = helper(preStart+1, inStart, inIndex-1, preorder, inorder);
         root.right = helper(preStart+inIndex-inStart+1, inIndex+1, inEnd, preorder, inorder);
