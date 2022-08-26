@@ -20,16 +20,15 @@ class Solution {
             return true;
         }
         else if((p == null && q != null) || (p != null && q == null)) {
-            toReturn = false;
+            return false;
         }
         else {
          if(p.val != q.val) {
-            toReturn = false;
+            return false && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
         }
         else {
-            toReturn = true;
+            return true && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
         }
         }
-         return toReturn && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
 }
