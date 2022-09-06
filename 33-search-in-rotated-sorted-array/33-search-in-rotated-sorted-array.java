@@ -4,19 +4,13 @@ class Solution {
         if(nums.length == 0 || nums == null) {
             return -1;
         }
-        if(nums.length == 1 && nums[0] == target) {
-            return 0;
-        }
-        if(nums.length == 1 && nums[0] != target) {
-            return -1;
-        }
         
         int l = 0;
         int r = nums.length-1;
         
         
         while(l < r) {
-            int mid = (l+r)/2;
+            int mid  = (l+r)/2;
             
             if(nums[mid] > nums[r]) {
                 l = mid+1;
