@@ -1,6 +1,7 @@
 class Solution {
     public int search(int[] nums, int target) {
         
+        //Check for error cases
         if(nums.length == 0 || nums == null) {
             return -1;
         }
