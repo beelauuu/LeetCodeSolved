@@ -12,20 +12,19 @@ class Solution {
         int left = 0;
         int right = nums.length-1;
         
-        //Basic binary search
+        //Modified binary search
         while(left < right) {
-            int mid = (left+right)/2;
-        
-            //If the middle is greater than the right-most element, we know that the right is the smaller, unsorted side
+            int mid = (left+right)/2;  
+            //If the middle is greater than the right-most element, we know that the right is the smaller, unsorted side. We can do mid+1 because we know that the mid is not the smallest element
             if(nums[mid] > nums[right]) {
                 left = mid+1;
             }
-            //Otherwise, it's either perfectly sorted or the left is the smaller side, in both
-            //cases, the right pointer will move to mid-1
+            //Else we know the smallest element is going to be on the left side
             else {
                 right = mid;
             }
         }
+        
         //Return the left pointer
         return nums[left];
     }
