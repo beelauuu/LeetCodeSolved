@@ -10,6 +10,7 @@ class Solution {
         int r = nums.length-1;
         
         
+        //Leetcode from Find Minimum of Rotated Sorted Array
         while(l < r) {
             int mid  = (l+r)/2;
             
@@ -20,11 +21,13 @@ class Solution {
                 r = mid;
             }
         }
+        //At this point l points to the smallest element in the array
         
         int start = l;
         l = 0;
         r = nums.length-1;
         
+        //Checking which side of the array it's on
         if(target >= nums[start] && target <= nums[r]) {
             l = start;
         }
@@ -32,6 +35,8 @@ class Solution {
             r = start; 
         }
         
+        
+        //Normal binary search at this point
         while(l <= r) {
             int mid = (l+r)/2;
             
