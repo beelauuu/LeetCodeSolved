@@ -87,3 +87,45 @@ class Node {
  * int param_1 = obj.get(key);
  * obj.put(key,value);
  */
+
+//Using LinkedList Object.
+
+// class LRUCache {
+    
+//     LinkedList<Integer> orderList;
+//     Map<Integer, Integer> lister;
+//     int capacity;
+    
+//     public LRUCache(int capacity) {
+//         orderList = new LinkedList();
+//         lister = new HashMap();
+//         this.capacity = capacity;
+//     }
+    
+//     public int get(int key) {
+//         if(lister.get(key) == null) {
+//             return -1;
+//         }
+//         else {
+//             orderList.remove(new Integer(key));
+//             orderList.addFirst(key);
+//             return lister.get(key);
+//         }
+//     }
+    
+//     public void put(int key, int value) {
+//         if(lister.get(key) != null) {
+//             lister.put(key, value);
+//             orderList.remove(new Integer(key));
+//             orderList.addFirst(key);
+//         }
+//         else {
+//             if(capacity == lister.size()) {
+//                 int keyToRemove = orderList.removeLast();
+//                 lister.remove(keyToRemove);
+//             }
+//             lister.put(key, value);
+//             orderList.addFirst(key);
+//         }
+//     }
+// }
