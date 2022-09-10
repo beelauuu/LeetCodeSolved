@@ -37,17 +37,20 @@ class Solution {
             return toReturn;
         }
         
-        
+        //Otherwise get the position of the node to remove
         int position = size-n;
         ListNode previous = null;
         ListNode header = head;
         
+        //Loop to the right position
         for(int i = 0; i < position; i++) {
             previous = header;
             header = header.next;
         }
         
+        //Set the prev next to the header next
         previous.next = header.next;
+        
         return toReturn;
     }
 }
