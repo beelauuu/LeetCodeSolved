@@ -10,6 +10,8 @@
  */
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
+        
+        //Throw everything into a minHeap
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         for(ListNode head: lists) {
             while(head != null) {
@@ -18,10 +20,12 @@ class Solution {
             }
         }
         
+        //If the minHeap is empty we know that there wasn't anything to merge so return null
         if(minHeap.isEmpty()) {
             return null;
         }
         
+        //Otherwise create your new list to return
         ListNode traverse = new ListNode(minHeap.remove());
         ListNode toReturn = traverse;
         
