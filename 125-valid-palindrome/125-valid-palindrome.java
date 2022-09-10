@@ -1,15 +1,26 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        String copy = s.toLowerCase();
-        copy = copy.replaceAll("[^A-Za-z0-9]","");
+        String copy = s.replaceAll("[^A-Za-z0-9]","");
+        copy = copy.toLowerCase();
         
-        for(int i = 0 ; i < copy.length()/2; i++) {
-            if(copy.charAt(i) != copy.charAt(copy.length()-i-1)) {
+        char[] array = copy.toCharArray();
+        List<Character> og = new ArrayList<>();
+        List<Character> rev = new ArrayList<>();
+        
+        for(char c: array) {
+            og.add(c);
+            rev.add(c);
+        }
+        
+        Collections.reverse(rev);
+        
+        for(int i = 0; i < og.size(); i++) {
+            if(og.get(i) != rev.get(i)) {
                 return false;
             }
         }
+        
+        
         return true;
-        
-        
     }
 }
