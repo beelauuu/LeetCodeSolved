@@ -29,9 +29,13 @@ class Solution {
             }
         }
         
-
+        int[][] toReturn = new int[outputArray.size()][];
         
-        return outputArray.toArray(new int[outputArray.size()][]);
+        for(int i = 0; i < outputArray.size(); i++) {
+            toReturn[i] = outputArray.get(i);
+        }
+        
+        return toReturn;
         
         
     }
