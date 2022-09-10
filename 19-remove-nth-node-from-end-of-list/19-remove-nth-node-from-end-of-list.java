@@ -10,6 +10,8 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
+        
+        //If head is null or there's only one element to remove we can just remove it
         if(head == null) {
             return null;
         }
@@ -23,19 +25,19 @@ class Solution {
         ListNode traverse = head;
         int size = 0;
         
-        while (traverse.next != null) {
+        //Traverse the list to get the size
+        while (traverse != null) {
             size++;
             traverse = traverse.next;
         }
-        size++;
         
         if(size == n) {
             toReturn = head.next;
             return toReturn;
         }
         
-        int position = size-n;
         
+        int position = size-n;
         ListNode previous = null;
         ListNode header = head;
         
