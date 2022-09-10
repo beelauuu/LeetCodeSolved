@@ -31,6 +31,7 @@ class Solution {
             traverse = traverse.next;
         }
         
+        //Edge case with the head, if the size == n, then just return the next element.
         if(size == n) {
             toReturn = head.next;
             return toReturn;
