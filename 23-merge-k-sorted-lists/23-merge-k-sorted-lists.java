@@ -18,12 +18,14 @@ class Solution {
             }
         }
         
-        ListNode toReturn = new ListNode(0);
-        ListNode head = toReturn;
+        ListNode toReturn = new ListNode(-1);
+        
+        
+        ListNode traverse = toReturn;
         
         while(!minHeap.isEmpty()) {
-            head.next = new ListNode(minHeap.remove());
-            head = head.next;
+            traverse.next = new ListNode(minHeap.remove());
+            traverse = traverse.next;
         }
         
         return toReturn.next;
