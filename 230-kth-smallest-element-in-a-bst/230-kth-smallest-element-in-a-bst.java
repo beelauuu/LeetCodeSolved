@@ -15,12 +15,12 @@
  */
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
+        //Using priority queue, add all of the values of the tree and then return/
         PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
-        
         addToQueue(pq, root);
-        
         int toReturn = 0;
         
+        //Poll the nth value and then return.
         for(int i = 0; i < k; i++) {
             toReturn = pq.poll();
         }
