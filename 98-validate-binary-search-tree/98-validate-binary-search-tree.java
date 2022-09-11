@@ -26,7 +26,8 @@ class Solution {
         if(root == null) {
             return true;
         }
-        
+        //Check to make sure the bounds are less than a possible value as well as
+        //greater than a possible value
         if((min != null && root.val <= min) || (max != null && root.val >= max)) {
             return false;
         }
