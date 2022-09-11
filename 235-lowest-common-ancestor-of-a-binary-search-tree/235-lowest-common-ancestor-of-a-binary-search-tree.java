@@ -11,6 +11,7 @@
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         
+        //Iterating down until you find a root node that is inbetween p and q
         if(p.val < root.val && q.val < root.val) {
             return lowestCommonAncestor(root.left, p, q);
         }
