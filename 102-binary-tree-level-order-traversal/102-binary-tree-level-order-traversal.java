@@ -30,19 +30,14 @@ class Solution {
         Queue<TreeNode> queue = new LinkedList();
         queue.add(root);
         
-        //While it's not empty
         while(!queue.isEmpty()) {
-            //We can have a size value for each level and a list for each level
             int size = queue.size();
-            List<Integer> currLevel = new ArrayList<>();
+            List<Integer> add = new ArrayList();
             
-            //Iterate through all the nodes on each level removing from queue and adding it
-            //to the curr level
             for(int i = 0; i < size; i++) {
-                TreeNode curr = queue.remove();
-                currLevel.add(curr.val);
+                TreeNode curr = queue.poll();
+                add.add(curr.val);
                 
-                //If it's got children, add the left and right to the queue
                 if(curr.left != null) {
                     queue.add(curr.left);
                 }
@@ -50,9 +45,7 @@ class Solution {
                     queue.add(curr.right);
                 }
             }
-            
-            //Finally add the list to the returner
-            list.add(currLevel);
+            list.add(add);
         }
         
         return list;
