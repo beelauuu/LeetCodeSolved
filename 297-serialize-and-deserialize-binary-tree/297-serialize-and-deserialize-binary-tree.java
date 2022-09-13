@@ -11,20 +11,21 @@ public class Codec {
     int index = 0;
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
-        StringBuilder toSerialize = new StringBuilder();
-        helpSerialize(root, toSerialize);
-        return toSerialize.toString();
+        String toSerialize = "";
+        toSerialize = helpSerialize(root, toSerialize);
+        return toSerialize;
     }
     
-    public void helpSerialize(TreeNode root, StringBuilder rec) {
+    public String helpSerialize(TreeNode root, String rec) {
         if(root == null) {
-            rec.append("null,");
-            return;
+            return rec += "null,";
         }
         
-        rec.append(root.val+",");
-        helpSerialize(root.left, rec);
-        helpSerialize(root.right,rec);
+        rec += root.val+",";
+        rec = helpSerialize(root.left, rec);
+        rec = helpSerialize(root.right,rec);
+        return rec;
+        
     }
 
     // Decodes your encoded data to tree.
