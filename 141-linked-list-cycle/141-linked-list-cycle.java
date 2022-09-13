@@ -11,17 +11,19 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        if(head == null) {
+        //Check for null at first
+        if(head==null)
             return false;
-        }
         
-        ListNode slow = head;
-        ListNode fast = head;
+        //Algorithm called tortoise & hare
+        ListNode slow=head;
+        ListNode fast=head;
         
-        while(fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-            
+        //If we touch null or the next value being null, we know there's no cycle
+        while(fast!=null && fast.next!=null) {
+            slow=slow.next;
+            fast=fast.next.next;
+            //Eventually slow and fast will meet if there is
             if(slow == fast) {
                 return true;
             }
