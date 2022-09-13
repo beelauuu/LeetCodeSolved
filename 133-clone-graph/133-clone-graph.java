@@ -29,13 +29,13 @@ class Solution {
             return oldToNew.get(node);
         }
         
-        Node adderNew = new Node(node.val, new ArrayList<Node>());
-        oldToNew.put(node, adderNew);
+        Node toAdd = new Node(node.val, new ArrayList<Node>());
+        oldToNew.put(node, toAdd);
         
-        for(Node neighbors: node.neighbors) {
-            adderNew.neighbors.add(cloneGraph(neighbors));
+        for(Node nodes: node.neighbors) {
+            toAdd.neighbors.add(cloneGraph(nodes));
         }
         
-        return adderNew;
-        }
+        return toAdd;
+    }
 } 
