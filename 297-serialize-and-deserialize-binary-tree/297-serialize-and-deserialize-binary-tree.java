@@ -11,6 +11,7 @@ public class Codec {
     int index = 0;
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
+        //Helper method to convert into a string
         String toSerialize = "";
         toSerialize = helpSerialize(root, toSerialize);
         return toSerialize;
@@ -21,6 +22,7 @@ public class Codec {
             return rec += "null,";
         }
         
+        //Add the value of the root and then a ",", recursively hitting the whole tree
         rec += root.val+",";
         rec = helpSerialize(root.left, rec);
         rec = helpSerialize(root.right,rec);
@@ -30,6 +32,7 @@ public class Codec {
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
+        //Split it into a String array
         String[] arr = data.split(",");
         index = 0;
         return helpDe(arr);
@@ -37,12 +40,16 @@ public class Codec {
     
     public TreeNode helpDe(String[] data) {
         if(index >= data.length || data[index].equals("null")) {
+        //If we go out of bounds we know it's null or there is no other children
             index++;
             return null;
         }
         
+        //Else create a new branch and increment the index
         TreeNode toAdd = new TreeNode(Integer.parseInt(data[index]));
         index++;
+        
+        //Recursively call the left and right
         toAdd.left = helpDe(data); 
         toAdd.right = helpDe(data);
         return toAdd;
