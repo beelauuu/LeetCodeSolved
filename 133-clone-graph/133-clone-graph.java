@@ -19,20 +19,23 @@ class Node {
 */
 
 class Solution {
-    HashMap<Node, Node> oldToNew = new HashMap<Node, Node>();
+    HashMap<Node, Node> oldToNew = new HashMap();
     public Node cloneGraph(Node node) {
         if(node == null) {
             return null;
         }
         
-        if(oldToNew.containsKey(node)) {
+        if(oldToNew.get(node) != null) {
             return oldToNew.get(node);
         }
-        Node newNode = new Node(node.val, new ArrayList<Node>());
-        oldToNew.put(node, newNode);
+        
+        Node adderNew = new Node(node.val, new ArrayList<Node>());
+        oldToNew.put(node, adderNew);
+        
         for(Node neighbors: node.neighbors) {
-            newNode.neighbors.add(cloneGraph(neighbors));
+            adderNew.neighbors.add(cloneGraph(neighbors));
         }
-        return newNode;
+        
+        return adderNew;
         }
 } 
