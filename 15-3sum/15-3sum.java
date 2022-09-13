@@ -1,5 +1,6 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
         //ToReturn List
         List<List<Integer>> toReturn = new ArrayList<List<Integer>>();
         //HashMap for efficient checking
@@ -23,7 +24,6 @@ class Solution {
                    array.add(nums[i]);
                    array.add(nums[j]);
                    array.add(valueToGet-nums[j]);
-                   Collections.sort(array);
                    //If adding it to the set is false, we know its a dupe
                     if(dupes.add(array) != false) {
                           toReturn.add(array);  
