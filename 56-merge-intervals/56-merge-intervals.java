@@ -20,7 +20,9 @@ class Solution {
         
         for(int i = 1; i < intervals.length; i++) {
             if(current[1] >= intervals[i][0]) {
-                current[1] = Math.max(current[1], intervals[i][1]);
+                if(current[1] <= intervals[i][1]) {
+                    current[1] = intervals[i][1];
+                }
             }
             else {
                 current = intervals[i];
@@ -35,6 +37,5 @@ class Solution {
         }
         
         return toReturnn;
-        
     }
 }
