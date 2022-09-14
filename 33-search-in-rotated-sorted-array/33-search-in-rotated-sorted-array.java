@@ -21,6 +21,7 @@ class Solution {
                 r = mid;
             }
         }
+        
         //At this point l points to the smallest element in the array
         
         int start = l;
