@@ -14,40 +14,27 @@ class Solution {
             }
         });
         
-        //Create a new ArrayList to be returned and gather the first interval
-        List<int[]> outputArray = new ArrayList();
-        int[] currentinterval = intervals[0];
-        outputArray.add(currentinterval);
+        List<int[]> toReturn = new ArrayList<int[]>();
+        int[] current = intervals[0];
+        toReturn.add(current);
         
-        for(int[] interval: intervals) {
-            //Gather the beginning and end of your current working interval and
-            //potential merge interval
-            int begin = currentinterval[0];
-            int end = currentinterval[1];
-            int nextbegin = interval[0];
-            int nextend = interval[1];
-            
-            //If the end of your current interval is >= to the beginning of your next
-            //interval, you may have a potential merge
-            if(end >= nextbegin) {
-                currentinterval[1] = Math.max(end, nextend);
+        for(int i = 1; i < intervals.length; i++) {
+            if(current[1] >= intervals[i][0]) {
+                current[1] = Math.max(current[1], intervals[i][1]);
             }
             else {
-                //Otherwise, we know we're in a different interval, so set a different
-                //current interval and add it to the ArrayList
-                currentinterval = interval;
-                outputArray.add(currentinterval);
+                current = intervals[i];
+                toReturn.add(current);
             }
         }
         
         //Return everything
-        int[][] toReturn = new int[outputArray.size()][];
-        for(int i = 0; i < outputArray.size(); i++) {
-            toReturn[i] = outputArray.get(i);
+        int[][] toReturnn = new int[toReturn.size()][];
+        for(int i = 0; i < toReturn.size(); i++) {
+            toReturnn[i] = toReturn.get(i);
         }
         
-        return toReturn;
-        
+        return toReturnn;
         
     }
 }
