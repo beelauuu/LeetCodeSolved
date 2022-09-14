@@ -23,12 +23,12 @@ class Solution {
         int value2 = 1;
         
         //It's just the Fibonacci numbers
-        for(int i = 0; i < n-1; i++) {
+        for(int i = 0; i < n; i++) {
             int temp = value1;
             value1 = value1+value2;
             value2 = temp;
         }
         
-        return value1;
+        return value2;
     }
 }
