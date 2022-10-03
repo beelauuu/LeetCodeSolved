@@ -1,19 +1,23 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length <= 1) return 0;
+        if (prices == null || prices.length <= 1) {
+            return 0;
+        } 
         
-        int profit = 0, minStockPriceSoFar = prices[0];
+        int toReturn = 0;
+        int min = prices[0];
         
-        for (int day = 1; day < prices.length; day++)
+        for (int i = 1; i < prices.length; i++)
         {
-            int currentDayStockPrice = prices[day];
-            if (currentDayStockPrice > minStockPriceSoFar)
-            {
-                profit += currentDayStockPrice - minStockPriceSoFar;
-                minStockPriceSoFar = currentDayStockPrice;
+            int curr = prices[i];
+            if(curr > min) {
+                toReturn += curr-min;
+                min = curr; 
             }
-            else minStockPriceSoFar = currentDayStockPrice;
+            else {
+                min = curr;
+            }
         }
-        return profit;
+        return toReturn;
     }
 }
